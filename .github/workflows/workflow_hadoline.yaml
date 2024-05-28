@@ -1,0 +1,16 @@
+name: Analyse Dockerfile
+on:
+  push:
+    
+jobs:
+  hadolint:
+    name: hadolint scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v3
+
+      - name: Run hadolint
+        uses: hadolint/hadolint-action@2.1.0
+        with:
+          dockerfile: ./Dockerfile
