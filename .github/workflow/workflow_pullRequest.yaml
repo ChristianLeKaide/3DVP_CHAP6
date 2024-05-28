@@ -5,7 +5,7 @@
 name: Pull Request on Branch Push
 on:
   pull_request:
-    branches: [master, main]
+    branches: [demo]
 jobs:
   lint:
     name: lint code base
