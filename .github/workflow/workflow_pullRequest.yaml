@@ -18,6 +18,6 @@ jobs:
         uses: github/super-linter/slim@v4
         env:
           VALIDATE_ALL_CODEBASE: true
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }}
           # BRANCH_PREFIX: "update/"
           # PULL_REQUEST_BRANCH: "master"
