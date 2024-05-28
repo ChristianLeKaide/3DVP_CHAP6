@@ -1,7 +1,3 @@
-#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
-
-
-
 name: Pull Request on Branch Push
 on:
   pull_request:
