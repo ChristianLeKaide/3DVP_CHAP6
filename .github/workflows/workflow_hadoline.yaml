@@ -32,7 +32,7 @@ jobs:
         if: always()
         with:
           sarif_file: hadolint-results.sarif
-            wait-for-processing: true
+          wait-for-processing: true
 
       - name: debug the code part 2
         run: |
