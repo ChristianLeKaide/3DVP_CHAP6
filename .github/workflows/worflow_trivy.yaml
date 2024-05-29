@@ -1,0 +1,31 @@
+name: trivy
+on:
+  workflow_dispatch:
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout source"
+        uses: actions/checkout@v4
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          push: false
+          tags: dexter/exo-6-5:latest
+        
+      - name: run trivy
+        uses: aquasecurity/trivy-action@0.8.0
+        with:
+          image-ref: dexter/exo-6-5:latest
+          format: serif
+          output: 'trivy-results.serif'
+      - name: "Upload Trivy scan results to Github Security tab"
+        uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: 'trivy-results.serif'
