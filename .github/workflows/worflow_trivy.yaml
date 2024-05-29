@@ -5,6 +5,8 @@ on:
 jobs:
   build_and_publish:
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
     steps:
       - name: "checkout source"
         uses: actions/checkout@v4
@@ -16,12 +18,12 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: false
-          tags: dexter/exo-6-5:latest
+          tags: roxy:latest
         
       - name: run trivy
         uses: aquasecurity/trivy-action@0.8.0
         with:
-          image-ref: dexter/exo-6-5:latest
+          image-ref: roxy:latest
           format: serif
           output: 'trivy-results.serif'
       - name: "Upload Trivy scan results to Github Security tab"
