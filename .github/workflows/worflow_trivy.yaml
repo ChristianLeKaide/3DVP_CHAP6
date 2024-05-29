@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Set up Docker Buildx
         run: |
-          docker build -t docker.io/my-organization/my-app:${{ github.sha }}
+          docker buildx build -t docker.io/my-organization/my-app:${{ github.sha }}
         
       - name: run trivy
         uses: aquasecurity/trivy-action@0.8.0
