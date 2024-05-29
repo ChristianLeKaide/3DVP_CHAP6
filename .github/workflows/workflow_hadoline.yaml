@@ -6,6 +6,8 @@ jobs:
   hadolint:
     name: hadolint scan
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
     steps:
       - name: checkout the code
         uses: actions/checkout@v3
