@@ -19,13 +19,23 @@ jobs:
           format : sarif
           output-file: hadolint-results.sarif
 
+      - name: debug the code part 1
+        run: |
+          pwd
+          ls 
 
 
       - name: Upload analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v3 
+
         if: always()
         with:
           sarif_file: hadolint-results.sarif
             wait-for-processing: true
+
+      - name: debug the code part 2
+        run: |
+          pwd
+          ls 
 
     
