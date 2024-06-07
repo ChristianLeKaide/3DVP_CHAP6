@@ -15,7 +15,7 @@ jobs:
           docker buildx build -t my-app:latest .
         
       - name: run trivy
-        uses: aquasecurity/trivy-action@0.8.0
+        uses: aquasecurity/trivy-action@0.22.0
         with:
           image-ref: 'my-app:latest'
           format: sarif
