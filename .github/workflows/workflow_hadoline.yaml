@@ -10,7 +10,7 @@ jobs:
       security-events: write
     steps:
       - name: checkout the code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Run hadolint
         uses: hadolint/hadolint-action@v3.1.0
